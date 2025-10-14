@@ -1,5 +1,6 @@
 package com.ecommerce.ecommercebackend.domain.service;
 
+import com.ecommerce.ecommercebackend.domain.exception.InsufficientStockException;
 import com.ecommerce.ecommercebackend.domain.model.Product;
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -17,7 +18,7 @@ public class ProductDomainService {
 
     public Product reduceStock(Product product, int quantity) {
         int newStock = product.getStockQuantity() - quantity;
-        if (newStock < 0) throw new IllegalStateException("Insufficient stock for product: " + product.getName());
+        if (newStock < 0) throw new InsufficientStockException("Insufficient stock for product: " + product.getName());
         return new Product(product.getId(), product.getName(), product.getDescription(),
                 product.getPrice(), newStock, product.getCategory());
     }
