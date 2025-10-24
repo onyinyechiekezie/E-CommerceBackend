@@ -5,32 +5,31 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class User {
-
     private final UUID id;
-    private String name;
-    private String email;
-    private String password;
-    private Role role;
-    private boolean active;
+    private final String name;
+    private final String email;
+    private final String passwordHash;
+    private final Role role;
+    private final boolean active;
     private final LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private final LocalDateTime updatedAt;
 
-    public User(UUID id, String name, String email, String password, Role role,
-                boolean active, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(UUID id, String name, String email, String passwordHash, Role role, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.passwordHash = passwordHash;
         this.role = role;
         this.active = active;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
+    // Getters only — immutable
     public UUID getId() { return id; }
     public String getName() { return name; }
     public String getEmail() { return email; }
-    public String getPassword() { return password; }
+    public String getPasswordHash() { return passwordHash; }
     public Role getRole() { return role; }
     public boolean isActive() { return active; }
     public LocalDateTime getCreatedAt() { return createdAt; }
