@@ -35,3 +35,19 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Local configs (don't upload secrets)
+application.yml
+application-local.yml
+.env
+
